@@ -1,0 +1,397 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Montserrat, sans-serif;
+
+}
+
+/* Mobile - 480px o menos */
+.header {
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.logo {
+    width: 20%;
+    margin: 20px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu-icon {
+    display: block;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.icon-hamburger {
+    width: 40px;
+    height: 40px;
+}
+
+.menu_list1 {
+    display: none;
+    list-style: none;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.menu_list2 {
+    display: none;
+    list-style: none;
+    font-weight: bold;
+    color: white;
+    border-left: solid 3px white;
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+    cursor: pointer;
+}
+
+.menu-list-item {
+    margin-right: 15px;
+}
+
+.section1 {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    background-color: #529cf1;
+    padding: 50px;
+}
+
+.h1-section1 {
+    font-size: 8vw;
+    margin-top: 70px;
+}
+
+.paragraph1-section1 {
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 5vw;
+}
+
+.paragraph2-section1 {
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+.button-container {
+    display: flex;
+}
+
+.button {
+    width: 100%;
+    display: inline-block;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 15px 40px 15px 40px;
+    margin: 20px 5px 20px 5px;
+    background-color: rgb(0, 200, 83);
+}
+
+.h2-section2 {
+    font-size: 40px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.section2 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.container-benefit {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.image-section2 {
+    display: flex;
+    width: 90px;
+    margin: 20px 10px 20px 10px;
+    flex-direction: row;
+}
+
+.paragraph-section2 {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+    font-size: 10px;
+    padding: 10px;
+    align-items: flex-start;
+}
+
+.footer-flag {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-top: 20px;
+}
+
+.footer-imageflag {
+    width: 20px;
+    margin-left: 10px;
+}
+
+.footer-menu-copyright {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    align-items: baseline;
+}
+
+.footer-nav {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-information {
+    margin-top: 20px;
+}
+
+.footer-nav-item {
+    display: flex;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+/* Tablet */
+@media (min-width: 480px) and (max-width: 1000px) {
+
+    .menu-icon {
+        display: none;
+    }
+
+    .menu_list1 {
+        display: flex;
+        list-style: none;
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+        font-size: 1.5vw;
+
+    }
+
+    .menu_list2 {
+        display: flex;
+        list-style: none;
+        font-weight: bold;
+        color: white;
+        border-left: solid 1.5px white;
+        padding-left: 15px;
+        padding-right: 4.75px;
+        cursor: pointer;
+        font-size: 1.5vw;
+    }
+
+    .section1 {
+        display: flex;
+        flex-direction: column;
+        color: white;
+        background-color: #529cf1;
+        padding: 50px;
+        background-image: url('../IMAGES/premium_dancer.png');
+        background-position: right;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .h1-section1 {
+        font-size: 8vw;
+    }
+
+    .paragraph1-section1 {
+        font-size: 3vw;
+    }
+
+    .button-container {
+        display: flex;
+    }
+
+    .button {
+        width: auto;
+        display: inline-block;
+        font-weight: bold;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        padding: 10px 40px 10px 40px;
+        margin-top: 40px;
+        background-color: rgb(0, 200, 83);
+    }
+
+    .paragraph2-section1-container {
+        width: 75%;
+    }
+
+    .paragraph2-section1 {
+        font-size: 1.5vw;
+    }
+
+    /* no sé cómo hacer para que me salgan 2 benefits arriba y 2 abajo*/
+    .section2 {
+        display: flex;
+        flex-direction: wrap;
+        width: 100%;
+    }
+
+    .container-benefit {
+        display: flex;
+        flex-wrap: column;
+        align-items: center;
+    }
+
+    .paragraph-section2 {
+        text-align: left;
+    }
+
+    .footer-nav {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1001px) {
+
+    .logo {
+        max-width: 150px;
+
+    }
+
+    .menu-icon {
+        display: none;
+    }
+
+    .menu_list1 {
+        display: flex;
+        list-style: none;
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+    }
+
+    .menu_list2 {
+        display: flex;
+        list-style: none;
+        font-weight: bold;
+        color: white;
+        border-left: solid 3px white;
+        padding-left: 15px;
+        padding-right: 7.5px;
+        cursor: pointer;
+    }
+
+    .menu-list-item {
+        margin-right: 15px;
+    }
+
+    .section1 {
+        display: flex;
+        flex-direction: column;
+        color: white;
+        background-color: #529cf1;
+        padding: 50px;
+        background-image: url('../IMAGES/premium_dancer.png');
+        background-position: right;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .h1-section1 {
+        font-size: 6vw;
+    }
+
+    .paragraph1-section1 {
+        font-size: 2vw;
+    }
+
+    .button-container {
+        display: flex;
+    }
+
+    .button {
+        width: auto;
+        display: inline-block;
+        font-weight: bold;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        padding: 10px 40px 10px 40px;
+        margin-top: 60px;
+        background-color: rgb(0, 200, 83);
+    }
+
+    .paragraph2-section1-container {
+        width: 80%;
+    }
+
+    .paragraph2-section1 {
+        font-size: 1vw;
+    }
+
+    .section2 {
+        display: flex;
+        flex-direction: row;
+        margin: 20px 50px 50px 50px;
+        text-align: center;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .container-benefit {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .image-section2 {
+        display: flex;
+        display: inline-block;
+        width: 100px;
+        margin: 20px 50px 20px 50px;
+        text-align: center;
+    }
+
+    .paragraph-section2 {
+        text-align: center;
+        margin-right: 0px;
+    }
+
+    .footer-nav {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+    }
+
+}
