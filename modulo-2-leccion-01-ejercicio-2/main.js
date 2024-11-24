@@ -1,3 +1,12 @@
 'use strict';
 
-document.querySelector('h1').innerHTML = 'Esta página no es compatible con la versión actual de tu navegador. Por favor actualízalo a la versión más reciente';
+const boton = document.querySelector('.js_boton');
+const input = document.querySelector('.js_input'); 
+const list = document.querySelector('.js_list');
+
+boton.addEventListener('click', (ev) => {
+ev.preventDefault();
+    const textoEscrito = input.value;
+    const html = `<li>${textoEscrito}</li>`;
+    list.innerHTML += html;
+});
