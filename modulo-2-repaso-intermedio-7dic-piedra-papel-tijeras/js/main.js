@@ -9,6 +9,11 @@ const counterWinParagraph = document.querySelector('.js_counter_win');
 const counterLostParagraph = document.querySelector('.js_counter_lost');
 const winnerParagraph = document.querySelector('.js_winnerParagraph');
 const reloadBtn = document.querySelector('.js_reloadBtn');
+const imagePlayerOptionSelect = document.querySelector('.js_imagePlayerOptionSelect');
+const paragraphPlayerOptionSelect = document.querySelector('.js_paragraphPlayerOptionSelect');
+const imageComputerOptionSelect = document.querySelector('.js_imageComputerOptionSelect');
+const paragraphComputerOptionSelect = document.querySelector('.js_paragraphComputerOptionSelect');
+
 
 
 // SECCIÓN DE LOS DATOS DE APLICACIÓN
@@ -87,7 +92,56 @@ const handleClickButton = (ev) => {
     reloadBtn.classList.remove('hidden');
   }
 
+
+  if(userMove === 'tijera') {
+
+    imagePlayerOptionSelect.classList.remove('hidden');
+    imagePlayerOptionSelect.innerHTML = `<img src="./images/imagen_tijera.jpg" alt="La jugadora ha seleccionado tijera">`;
+    paragraphPlayerOptionSelect.classList.remove('hidden');
+    paragraphPlayerOptionSelect.innerHTML = '<p class=h2> La jugadora ha seleccionado tijera</p>';
+
+  }
+  
+  else if(userMove === 'papel') {
+    imagePlayerOptionSelect.classList.remove('hidden');
+    imagePlayerOptionSelect.innerHTML = `<img src="./images/imagen_papel.jpg" alt="La jugadora ha seleccionado papel">`;
+    paragraphPlayerOptionSelect.classList.remove('hidden');
+    paragraphPlayerOptionSelect.innerHTML = '<p class=h2> La jugadora ha seleccionado papel</p>';
+  }
+  
+  else if(userMove === 'piedra') {
+    imagePlayerOptionSelect.classList.remove('hidden');
+    imagePlayerOptionSelect.innerHTML = `<img src="./images/imagen_piedra.jpg" alt="La jugadora ha seleccionado piedra">`;
+    paragraphPlayerOptionSelect.classList.remove('hidden');
+    paragraphPlayerOptionSelect.innerHTML = '<p class=h2> La jugadora ha seleccionado piedra</p>';
+  }
+
+
+
+  if(computerMove === 'tijera') {
+
+    imageComputerOptionSelect.classList.remove('hidden');
+    imageComputerOptionSelect.innerHTML = `<img src="./images/imagen_tijera.jpg" alt="La computadora ha seleccionado tijera">`;
+    paragraphComputerOptionSelect.classList.remove('hidden');
+    paragraphComputerOptionSelect.innerHTML = '<p class=h2> La computadora ha seleccionado tijera</p>';
+
+  }
+  
+  else if(computerMove === 'papel') {
+    imageComputerOptionSelect.classList.remove('hidden');
+    imageComputerOptionSelect.innerHTML = `<img src="./images/imagen_papel.jpg" alt="La computadora ha seleccionado papel">`;
+    paragraphComputerOptionSelect.classList.remove('hidden');
+    paragraphComputerOptionSelect.innerHTML = '<p class=h2> La computadora ha seleccionado papel</p>';
+  }
+  
+  else if(computerMove === 'piedra') {
+    imageComputerOptionSelect.classList.remove('hidden');
+    imageComputerOptionSelect.innerHTML = `<img src="./images/imagen_piedra.jpg" alt="La computadora ha seleccionado piedra">`;
+    paragraphComputerOptionSelect.classList.remove('hidden');
+    paragraphComputerOptionSelect.innerHTML = '<p class=h2> La computadora ha seleccionado piedra</p>';
+
 };
+}
 
 
 const compareMoves = (userMove, computerMove) => {
@@ -141,9 +195,13 @@ const compareMoves = (userMove, computerMove) => {
 
 
 
+
+
+
 // SECCIÓN DE EVENTOS
 
 playBtn.addEventListener('click', handleClickButton);
+
 reloadBtn.addEventListener('click', (ev) => {
   ev.preventDefault();
 
