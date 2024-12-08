@@ -93,6 +93,42 @@ const handleClickButton = (ev) => {
   }
 
 
+
+  if (userMove === 'tijera') {
+
+    userSelection(userMove);
+  }
+
+  else if (userMove === 'papel') {
+
+    userSelection(userMove);
+  }
+
+  else if (userMove === 'piedra') {
+
+    userSelection(userMove);
+  }
+
+
+
+  if (computerMove === 'tijera') {
+
+    computerSelection(computerMove);
+  }
+
+  else if (computerMove === 'papel') {
+
+    computerSelection(computerMove);
+  }
+
+  else if (computerMove === 'piedra') {
+
+    computerSelection(computerMove);
+  };
+
+
+ /*
+
   if(userMove === 'tijera') {
 
     imagePlayerOptionSelect.classList.remove('hidden');
@@ -141,7 +177,38 @@ const handleClickButton = (ev) => {
     paragraphComputerOptionSelect.innerHTML = '<p class=h2> La computadora ha seleccionado piedra</p>';
 
 };
+*/
+
+
 }
+
+const userSelection = (userMove) => {
+
+  const imageMove = `./images/imagen_${userMove}.jpg`;
+  const altText = `La jugadora ha seleccionado ${userMove}`;
+  const paragraphMove = `<p class="h2">La jugadora ha seleccionado ${userMove}</p>`;
+
+  imagePlayerOptionSelect.classList.remove('hidden');
+  imagePlayerOptionSelect.innerHTML = `<img src="${imageMove}" alt="${altText}">`;
+
+  paragraphPlayerOptionSelect.classList.remove('hidden');
+  paragraphPlayerOptionSelect.innerHTML = paragraphMove;
+}
+
+const computerSelection = (computerMove) => {
+
+  const imageMove = `./images/imagen_${computerMove}.jpg`;
+  const altText = `La computadora ha seleccionado ${computerMove}`;
+  const paragraphMove = `<p class="h2">La computadora ha seleccionado ${computerMove}</p>`;
+
+  imageComputerOptionSelect.classList.remove('hidden');
+  imageComputerOptionSelect.innerHTML = `<img src="${imageMove}" alt="${altText}">`;
+
+  paragraphComputerOptionSelect.classList.remove('hidden');
+  paragraphComputerOptionSelect.innerHTML = paragraphMove;
+}
+
+
 
 
 const compareMoves = (userMove, computerMove) => {
@@ -151,13 +218,13 @@ const compareMoves = (userMove, computerMove) => {
 
   // Decir quién ha ganado o si han empatado
 
-  if(userMove === 'select') {
+  if (userMove === 'select') {
 
     const result = 'Recuerda seleccionar una jugada';
 
     return result;
   }
-  
+
   if (userMove === computerMove) {
     // ¡EMPATE!
 
