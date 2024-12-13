@@ -1,5 +1,7 @@
 'use strict';
 
+const tasksUl = document.querySelector('.js_tasksUl');
+
 const tasks = [
     { name: "Recoger setas en el campo", completed: true, id: 1 },
     { name: "Comprar pilas", completed: true, id: 2 },
@@ -11,11 +13,11 @@ const tasks = [
     },
 ];
 
-const tasksUl = document.querySelector('.js_tasksUl');
 
 // Pintar las tareas del array en el listado
 
 tasks.forEach((oneTask) => {
+
     tasksUl.innerHTML += `
       <li class="task ${oneTask.completed ? 'completed' : ''}">
         <input type="checkbox" ${oneTask.completed ? 'checked' : ''}>
@@ -24,6 +26,28 @@ tasks.forEach((oneTask) => {
     `;
   });
         
+
+// Sacar el checkbox marcado y tachar la tarea si está completada
+
+const statusTask = (taskDone, checked) => {
+
+if (checked) {
+
+    taskDone.classList.add('completed'); 
+    return 'completed';
+}
+
+else {
+
+    taskDone.classList.remove('completed'); 
+    return '';
+}
+
+};
+
+
+
+
 
 
 
