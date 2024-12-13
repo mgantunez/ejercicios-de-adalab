@@ -95,7 +95,7 @@
     width: 40px;
 }
 
-.task-list {
+.tasks-list {
     list-style: none;
     padding-inline: 45px;
     margin-top: 20px;
@@ -109,16 +109,12 @@
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ddd;
-    /* Borde alrededor de cada tarea */
     border-radius: 5px;
-    /* Bordes redondeados */
     margin-bottom: 10px;
-    /* Espacio entre las tareas */
 }
 
 .task input[type="checkbox"] {
     width: 15px;
-    /* Tamaño del check */
     height: 15px;
 }
 
