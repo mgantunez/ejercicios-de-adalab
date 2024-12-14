@@ -113,11 +113,11 @@
     margin-bottom: 10px;
 }
 
-.task input[type="checkbox"] {
+.task input {
     width: 15px;
     height: 15px;
 }
 
-.task.completed {
+.task.tachado {
     text-decoration: line-through; 
 }
