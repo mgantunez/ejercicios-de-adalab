@@ -28,17 +28,31 @@ const tasks = [
 
 // SECCIÓN DE FUNCIONES
 
+/*
+    Esta función genera el HTML (li>input) de una task 
+    que recibe como objeto (oneTask) en el parámetro.
+
+    Uso el ternario por no poner un if / else 
+    y repetir todo el html y de nuevo poner el return.
+*/
+
+
 const renderOneTask = (oneTask) => {
 
     const html = `
-      <li class="task">
+        <li class= "${oneTask.completed ? 'task completed' : 'task'}">
         <input class="task input" type="checkbox" name="task" id="task">
-        <p>${oneTask.name}</p>
-      </li>`;
+         <p>${oneTask.name}</p>
+        </li>`;
 
     return html;
 
 };
+
+/*
+    Genera y pone en la página el código HTML de todas 
+    las tareas incluidas en el array de tasks
+*/
 
 const renderAllTasks = () => {
 
