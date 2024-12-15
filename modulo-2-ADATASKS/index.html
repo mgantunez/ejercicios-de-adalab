@@ -10,38 +10,42 @@
 
 <header class="header">AdaTasks</header>
 
-<body class="body">
+<body>
 
-    <div class="sections-app">
-        <section class="section-add">
-            <form class="js_sectionAddForm section-add-form">
-                <input class="js_inputAdd section-input-add" type="text" name="item" id="item"
-                    placeholder="Nueva tarea">
-                <input class="js_btnAdd section-btn" type="submit" value="Agregar">
+    <main class="main">
 
-            </form>
+        <div class="sections-app">
 
-        </section>
+            <section class="section-add">
 
-        <section class="section-search">
+                <form class="js_sectionAddForm section-add-form">
 
-            <form class="section-search-form">
-                <input class="js_inputSearch section-input-search" type="text" name="item" id="item"
-                    placeholder="Ejemplo: ir al gimnasio">
-                <input class="js_btnSearch section-btn" type=" submit" value="Buscar">
-            </form>
+                    <input class="js_inputAdd section-input-add" type="text" name="new" id="new"
+                        placeholder="Nueva tarea">
+                    <input class="js_btnAdd section-btn" type="submit" value="Agregar">
 
-            <ul class="js_tasksUl tasks-list">
+                </form>
 
+            </section>
 
-            </ul>
+            <section class="section-search">
 
+                <form class="section-search-form">
 
+                    <input class="js_inputSearch section-input-search" type="text" name="search" id="search"
+                        placeholder="Ejemplo: ir al gimnasio">
+                    <input class="js_btnSearch section-btn" type=" submit" value="Buscar">
 
+                </form>
 
+                <ul class="js_tasksUl tasks-list">
+                </ul>
 
-        </section>
-    </div>
+            </section>
+
+        </div>
+
+    </main>
 
     <script src="./js/main.js"></script>
 

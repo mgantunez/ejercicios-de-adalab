@@ -9,7 +9,7 @@ const btnSearch = document.querySelector('.js_btnSearch');
 
 // Array enunciado ejercicio 
 
-const tasksArray = [
+const tasks = [
     { name: "Recoger setas en el campo", completed: true, id: 1 },
     { name: "Comprar pilas", completed: true, id: 2 },
     { name: "Poner una lavadora de blancos", completed: true, id: 3 },
@@ -27,7 +27,7 @@ const renderTasks = (selectedTasks) => {
 
 // Pintar las tareas del array en el listado
 
-for (const oneTask of tasksArray) {
+for (const oneTask of tasks) {
 
     tasksUl.innerHTML += `
       <li class="task ${oneTask.completed ? 'tachado' : ''}">
