@@ -1,11 +1,16 @@
 'use strict';
 
+// SECCIÓN DE LOS QUERY SELECTOR
+
 const tasksUl = document.querySelector('.js_tasksUl');
 const inputAdd = document.querySelector('js_inputAdd');
 const btnAdd = document.querySelector('.js_btnAdd');
 
 const inputSearch = document.querySelector('.js_inputSearch');
 const btnSearch = document.querySelector('.js_btnSearch');
+
+
+// SECCIÓN DE LOS DATOS DE APLICACIÓN
 
 // Array enunciado ejercicio 
 
@@ -20,94 +25,30 @@ const tasks = [
     },
 ];
 
-const renderTasks = (selectedTasks) => {
 
-    tasksUl.innerHTML = '';
-}
+// SECCIÓN DE FUNCIONES
 
-// Pintar las tareas del array en el listado
+const renderOneTask = (taskName) => { }
+
 
 for (const oneTask of tasks) {
 
-    tasksUl.innerHTML += `
-      <li class="task ${oneTask.completed ? 'tachado' : ''}">
-        <input class="task input" type="checkbox" ${oneTask.completed ? 'checked' : ''}>
-        <p>${oneTask.name}</p>
-      </li>
-    `;
-    
+    const html = `
+      <li class="task">
+        <input class="task input" type="checkbox" name="task" id="task">
+        <p>${taskName}</p>
+      </li>`;
+
+    return html;
 
 };
 
+const renderAllTasks = () => {
 
-// Sacar el checkbox marcado y tachar la tarea si está completada
+    let allTasksHTML = '';
+    tasksUl.innerHTML = allTasksHTML;
 
-
-const statusTask = (taskDone, checked) => {
-
-    if (completed === true) {
-
-        taskDone.classList.add('completed');    }
-
-    else {
-
-        taskDone.classList.remove('completed');
-
-    }
-
-};
-
-
-
-
-// Vídeo tutoría:
-/*
-for (const oneTask of selectedTasks => {
-
-    const taskHTML = `
-      <li class="task ${oneTask.completed ? 'completed' : ''}">
-        <input type="checkbox" ${oneTask.completed ? 'checked' : ''}>
-        <p>${oneTask.name}</p>
-      </li>
-    `;
-
-    tasksUl.innerHTML += taskHTML;
-});
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-// Para añadir tarea
-const handleClick = (ev) => {
-    ev.preventDefault();
-
-    const taskArea = taskAreaInput.value;
-    tasks.push({name:taskArea, completed: false, id: 0});
-    
 }
-
-
-
-
-// Filtrar las tareas
-
-const filterTasks = (ev) => {
-    const filteredTasks = tasks.filter((oneTask) =>
-        oneTask.name.toLocaleLowerCase().includes(inputSearch.value)  // se pone el includes para poder buscar solo una parte de la tarea
-    )
-
-    renderTasks(filteredTasks)
-}
-
 
 // SECCIÓN DE EVENTOS
 
@@ -123,7 +64,7 @@ const filterTasks = (ev) => {
 
 // CÓDIGO QUE SE EJECUTA AL CARGAR LA PÁGINA
 
-
+renderAllTasks();
 
 
 
