@@ -50,7 +50,7 @@ const renderOneTask = (oneTask) => {
     las tareas incluidas en el array de tasks
 */
 
-const renderAllTasks = () => {
+const renderAllTasks = (tasksToRender) => {
 
     let html = '';
 
@@ -69,6 +69,30 @@ const renderAllTasks = () => {
         li.addEventListener('click', handleClickTask)
 
     }
+};
+
+const renderFilteredTasks = (filteredTasks) => {
+
+    let html = '';
+
+    for (const oneTask of filteredTasks) {
+
+        html += renderOneTask(oneTask);
+
+    }
+
+    tasksUl.innerHTML = html;
+
+
+    const taskLi = document.querySelectorAll('.js_taskLi');
+
+    for (const li of taskLi) {
+
+        li.addEventListener('click', handleClickTask)
+
+    }
+
+  
 };
 
 const handleClickTask = (ev) => {
@@ -100,7 +124,10 @@ const handleClickTask = (ev) => {
 
 const handleFilterInput = (ev) => {
 
-    filterInput.value
+const filteredTasks = tasks.filter ((oneTask) => oneTask.name.includes(filterInput.value));
+
+renderFilteredTasks(filteredTasks);
+
 };
 
 // SECCIÓN DE EVENTOS
