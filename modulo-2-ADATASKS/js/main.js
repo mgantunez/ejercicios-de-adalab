@@ -50,11 +50,12 @@ const renderOneTask = (oneTask) => {
     las tareas incluidas en el array de tasks
 */
 
-const renderAllTasks = (tasksToRender) => {
+const renderTasks = (tasksToRender) => {
 
     let html = '';
 
-    for (const oneTask of tasks) {
+    console.log('holissss');
+    for (const oneTask of tasksToRender) {
 
         html += renderOneTask(oneTask);
 
@@ -66,36 +67,12 @@ const renderAllTasks = (tasksToRender) => {
 
     for (const li of taskLi) {
 
-        li.addEventListener('click', handleClickTask)
-
-    }
-};
-
-const renderFilteredTasks = (filteredTasks) => {
-
-    let html = '';
-
-    for (const oneTask of filteredTasks) {
-
-        html += renderOneTask(oneTask);
-
+        li.addEventListener('click', (ev) => handleClickTask(ev, tasksToRender)); // Preguntar a Iván
     }
 
-    tasksUl.innerHTML = html;
+    };
 
-
-    const taskLi = document.querySelectorAll('.js_taskLi');
-
-    for (const li of taskLi) {
-
-        li.addEventListener('click', handleClickTask)
-
-    }
-
-  
-};
-
-const handleClickTask = (ev) => {
+const handleClickTask = (ev, tasksToRender) => {
 
     const clickedId = parseInt(ev.currentTarget.id);
 
@@ -118,7 +95,7 @@ const handleClickTask = (ev) => {
     }
 
     // Volver a pintar todas
-    renderAllTasks();
+    renderTasks(tasksToRender);
 
 };
 
@@ -126,9 +103,10 @@ const handleFilterInput = (ev) => {
 
 const filteredTasks = tasks.filter ((oneTask) => oneTask.name.includes(filterInput.value));
 
-renderFilteredTasks(filteredTasks);
+renderTasks(filteredTasks);
 
 };
+
 
 // SECCIÓN DE EVENTOS
 
@@ -138,7 +116,7 @@ filterInput.addEventListener('input', handleFilterInput);
 
 // CÓDIGO QUE SE EJECUTA AL CARGAR LA PÁGINA
 
-renderAllTasks();
+renderTasks(tasks);
 
 
 
