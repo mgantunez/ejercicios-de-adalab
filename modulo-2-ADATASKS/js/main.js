@@ -3,11 +3,7 @@
 // SECCIÓN DE LOS QUERY SELECTOR
 
 const tasksUl = document.querySelector('.js_tasksUl');
-const inputAdd = document.querySelector('.js_inputAdd');
-const btnAdd = document.querySelector('.js_btnAdd');
-
-const inputSearch = document.querySelector('.js_inputSearch');
-const btnSearch = document.querySelector('.js_btnSearch');
+const filterInput = document.querySelector('.js_filterInput');
 
 
 // SECCIÓN DE LOS DATOS DE APLICACIÓN
@@ -99,11 +95,17 @@ const handleClickTask = (ev) => {
 
     // Volver a pintar todas
     renderAllTasks();
-}
+
+};
+
+const handleFilterInput = (ev) => {
+
+    filterInput.value
+};
 
 // SECCIÓN DE EVENTOS
 
-
+filterInput.addEventListener('input', handleFilterInput);
 
 
 
