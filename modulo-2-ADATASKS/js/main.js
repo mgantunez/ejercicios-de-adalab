@@ -28,15 +28,12 @@ const tasks = [
 
 // SECCIÓN DE FUNCIONES
 
-const renderOneTask = (taskName) => { }
-
-
-for (const oneTask of tasks) {
+const renderOneTask = (oneTask) => {
 
     const html = `
       <li class="task">
         <input class="task input" type="checkbox" name="task" id="task">
-        <p>${taskName}</p>
+        <p>${oneTask.name}</p>
       </li>`;
 
     return html;
@@ -45,10 +42,16 @@ for (const oneTask of tasks) {
 
 const renderAllTasks = () => {
 
-    let allTasksHTML = '';
-    tasksUl.innerHTML = allTasksHTML;
+    let html = '';
 
-}
+    for (const oneTask of tasks) {
+
+        html += renderOneTask(oneTask);
+
+        tasksUl.innerHTML = html;
+
+    }
+};
 
 // SECCIÓN DE EVENTOS
 
