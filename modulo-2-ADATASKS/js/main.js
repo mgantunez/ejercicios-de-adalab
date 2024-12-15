@@ -3,7 +3,7 @@
 // SECCIÓN DE LOS QUERY SELECTOR
 
 const tasksUl = document.querySelector('.js_tasksUl');
-const inputAdd = document.querySelector('js_inputAdd');
+const inputAdd = document.querySelector('.js_inputAdd');
 const btnAdd = document.querySelector('.js_btnAdd');
 
 const inputSearch = document.querySelector('.js_inputSearch');
@@ -40,9 +40,9 @@ const tasks = [
 const renderOneTask = (oneTask) => {
 
     const html = `
-        <li class= "${oneTask.completed ? 'task completed' : 'task'}">
-        <input class="task input" type="checkbox" name="task" id="task">
-         <p>${oneTask.name}</p>
+        <li class= "js_taskLi ${oneTask.completed ? 'task completed' : 'task'}" id="${oneTask.id}">
+            <input class="task input" type="checkbox" name="task" ${oneTask.completed ? 'checked' : ''}>
+            <p>${oneTask.name}</p>
         </li>`;
 
     return html;
@@ -62,18 +62,46 @@ const renderAllTasks = () => {
 
         html += renderOneTask(oneTask);
 
-        tasksUl.innerHTML = html;
+    }
+
+    tasksUl.innerHTML = html;
+
+    const taskLi = document.querySelectorAll('.js_taskLi');
+
+    for (const li of taskLi) {
+
+        li.addEventListener('click', handleClickTask)
 
     }
 };
 
+const handleClickTask = (ev) => {
+
+    const clickedId = parseInt(ev.currentTarget.id);
+
+    // Localizar el obj de la tarea que se clicó
+
+    const oneTask = tasks.find(oneTask => oneTask.id === clickedId);
+
+    // Cambiar el obj.completed de esa tarea
+
+    if (oneTask.completed) {
+
+        oneTask.completed = false;
+
+    }
+
+    else {
+
+        oneTask.completed = true;
+
+    }
+
+    // Volver a pintar todas
+    renderAllTasks();
+}
+
 // SECCIÓN DE EVENTOS
-
-// Evento click para agregar una tarea 
-
-// Evento click para buscar la tarea 
-
-
 
 
 
