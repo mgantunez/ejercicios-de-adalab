@@ -4,6 +4,8 @@
 
 const tasksUl = document.querySelector('.js_tasksUl');
 const filterInput = document.querySelector('.js_filterInput');
+const btnSearch = document.querySelector('.js_btnSearch');
+const searchInput = document.querySelector('.js_searchInput'); 
 
 
 // SECCIÓN DE LOS DATOS DE LA APLICACIÓN
