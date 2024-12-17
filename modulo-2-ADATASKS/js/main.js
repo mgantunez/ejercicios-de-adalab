@@ -5,7 +5,7 @@
 const tasksUl = document.querySelector('.js_tasksUl');
 const filterInput = document.querySelector('.js_filterInput');
 const btnSearch = document.querySelector('.js_btnSearch');
-const searchInput = document.querySelector('.js_searchInput'); 
+const searchInput = document.querySelector('.js_searchInput');
 
 
 // SECCIÓN DE LOS DATOS DE LA APLICACIÓN
@@ -54,11 +54,12 @@ const renderOneTask = (oneTask) => {
 
 const renderTasks = () => {
 
+
     let html = '';
 
-const searchText = filterInput.value.toLowerCase();
-const tasksToRender = tasks.filter((oneTask) => oneTask.name.includes(searchText)); 
-// Incluyo aquí el filter para que renderice todo junto en una misma variable
+    const inputFilter = filterInput.value.toLowerCase();
+    const tasksToRender = tasks.filter((oneTask) => oneTask.name.includes(inputFilter));
+    // Incluyo aquí el filter para que renderice todo junto en una misma variable
 
     for (const oneTask of tasksToRender) {
 
@@ -72,10 +73,10 @@ const tasksToRender = tasks.filter((oneTask) => oneTask.name.includes(searchText
 
     for (const li of taskLi) {
 
-        li.addEventListener('click', (ev) => handleClickTask(ev)); 
+        li.addEventListener('click', (ev) => handleClickTask(ev));
     }
 
-    };
+};
 
 const handleClickTask = (ev) => {
 
@@ -99,22 +100,63 @@ const handleClickTask = (ev) => {
 
     }
 
-    // Volver a pintar todas
+    // Volver a pintar 
     renderTasks();
 
 };
 
 const handleFilterInput = () => {
 
-renderTasks();
+    renderTasks();
 
 };
+
+
+const inputSearch = () => {
+
+debugger;
+
+    let html = '';
+
+// Obtén el valor del input de filtrar.
+
+const searchTask = searchInput.value.toLowerCase();
+
+// Filtra las tareas que coinciden con el valor introducido por el usuario.
+
+const foundTask = tasks.filter(oneTask => oneTask.name.toLowerCase() === searchTask);
+
+for (const oneTask of foundTask) {
+
+    html += renderOneTask(oneTask);
+
+}
+
+tasksUl.innerHTML = html;
+
+const taskLi = document.querySelectorAll('.js_taskLi');
+
+for (const li of taskLi) {
+
+    li.addEventListener('click', (ev) => handleClickTask(ev));
+}
+
+}
+
+
+const handleClickButton = (ev) => {
+
+    inputSearch();
+
+    ev.preventDefault();
+
+}
 
 
 // SECCIÓN DE EVENTOS
 
 filterInput.addEventListener('input', handleFilterInput);
-
+btnSearch.addEventListener('click', handleClickButton);
 
 
 // CÓDIGO QUE SE EJECUTA AL CARGAR LA PÁGINA
