@@ -6,7 +6,7 @@ const tasksUl = document.querySelector('.js_tasksUl');
 const filterInput = document.querySelector('.js_filterInput');
 
 
-// SECCIÓN DE LOS DATOS DE APLICACIÓN
+// SECCIÓN DE LOS DATOS DE LA APLICACIÓN
 
 // Array enunciado ejercicio 
 
@@ -50,11 +50,14 @@ const renderOneTask = (oneTask) => {
     las tareas incluidas en el array de tasks
 */
 
-const renderTasks = (tasksToRender) => {
+const renderTasks = () => {
 
     let html = '';
 
-    console.log('holissss');
+const searchText = filterInput.value.toLowerCase();
+const tasksToRender = tasks.filter((oneTask) => oneTask.name.includes(searchText)); 
+// Incluyo aquí el filter para que renderice todo junto en una misma variable
+
     for (const oneTask of tasksToRender) {
 
         html += renderOneTask(oneTask);
@@ -67,12 +70,12 @@ const renderTasks = (tasksToRender) => {
 
     for (const li of taskLi) {
 
-        li.addEventListener('click', (ev) => handleClickTask(ev, tasksToRender)); // Preguntar a Iván
+        li.addEventListener('click', (ev) => handleClickTask); 
     }
 
     };
 
-const handleClickTask = (ev, tasksToRender) => {
+const handleClickTask = (ev) => {
 
     const clickedId = parseInt(ev.currentTarget.id);
 
@@ -95,15 +98,13 @@ const handleClickTask = (ev, tasksToRender) => {
     }
 
     // Volver a pintar todas
-    renderTasks(tasksToRender);
+    renderTasks();
 
 };
 
-const handleFilterInput = (ev) => {
+const handleFilterInput = () => {
 
-const filteredTasks = tasks.filter ((oneTask) => oneTask.name.includes(filterInput.value));
-
-renderTasks(filteredTasks);
+renderTasks();
 
 };
 
@@ -116,7 +117,7 @@ filterInput.addEventListener('input', handleFilterInput);
 
 // CÓDIGO QUE SE EJECUTA AL CARGAR LA PÁGINA
 
-renderTasks(tasks);
+renderTasks();
 
 
 
