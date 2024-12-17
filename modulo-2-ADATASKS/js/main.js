@@ -70,7 +70,7 @@ const tasksToRender = tasks.filter((oneTask) => oneTask.name.includes(searchText
 
     for (const li of taskLi) {
 
-        li.addEventListener('click', (ev) => handleClickTask); 
+        li.addEventListener('click', (ev) => handleClickTask(ev)); 
     }
 
     };
