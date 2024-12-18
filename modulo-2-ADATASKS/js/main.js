@@ -24,6 +24,7 @@ const tasks = [
 ];
 
 
+
 // SECCIÓN DE FUNCIONES
 
 /*
@@ -54,32 +55,50 @@ const renderOneTask = (oneTask) => {
 
 const renderTasks = () => {
 
-
     let html = '';
 
-    const inputFilter = filterInput.value.toLowerCase();
-    const tasksToRender = tasks.filter((oneTask) => oneTask.name.includes(inputFilter));
-    // Incluyo aquí el filter para que renderice todo junto en una misma variable
+    const filterTask = filterInput.value.toLowerCase();
+    const searchTask = searchInput.value.toLowerCase();
 
-    for (const oneTask of tasksToRender) {
+    let filteredTasks = tasks.filter((oneTask) => oneTask.name.toLocaleLowerCase().includes(filterTask));
+    if (searchTask !== '') {
+        filteredTasks = filteredTasks.filter((oneTask) => oneTask.name.toLocaleLowerCase() === searchTask);
+    }
+    /*
+        const inputFilter = filterInput.value.toLowerCase();
+        const tasksToRender = tasks.filter((oneTask) => oneTask.name.includes(inputFilter));
+    */
+    // Incluyo aquí el filter para que renderice todo junto en una misma variable
+    /*
+        if (oneTaskParam) {
+    
+            html += renderOneTask(oneTaskParam);
+        }
+    
+        else {
+    */
+    for (const oneTask of filteredTasks) {
 
         html += renderOneTask(oneTask);
 
     }
-
+    /*
+        }
+    */
     tasksUl.innerHTML = html;
 
     const taskLi = document.querySelectorAll('.js_taskLi');
 
     for (const li of taskLi) {
 
-        li.addEventListener('click', (ev) => handleClickTask(ev));
+        //li.addEventListener('click', (ev) => handleClickTask(ev) ); // Iván
+        li.addEventListener('click', handleClickTask); // Iván
     }
 
 };
 
 const handleClickTask = (ev) => {
-
+    //
     const clickedId = parseInt(ev.currentTarget.id);
 
     // Localizar el obj de la tarea que se clicó
@@ -88,6 +107,10 @@ const handleClickTask = (ev) => {
 
     // Cambiar el obj.completed de esa tarea
 
+    oneTask.completed = !oneTask.completed;
+
+    /*
+    oneTask.completed = oneTask.completed ? false : true;
     if (oneTask.completed) {
 
         oneTask.completed = false;
@@ -99,7 +122,7 @@ const handleClickTask = (ev) => {
         oneTask.completed = true;
 
     }
-
+*/
     // Volver a pintar 
     renderTasks();
 
@@ -111,42 +134,9 @@ const handleFilterInput = () => {
 
 };
 
-
-const inputSearch = () => {
-
-debugger;
-
-    let html = '';
-
-// Obtén el valor del input de filtrar.
-
-const searchTask = searchInput.value.toLowerCase();
-
-// Filtra las tareas que coinciden con el valor introducido por el usuario.
-
-const foundTask = tasks.filter(oneTask => oneTask.name.toLowerCase() === searchTask);
-
-for (const oneTask of foundTask) {
-
-    html += renderOneTask(oneTask);
-
-}
-
-tasksUl.innerHTML = html;
-
-const taskLi = document.querySelectorAll('.js_taskLi');
-
-for (const li of taskLi) {
-
-    li.addEventListener('click', (ev) => handleClickTask(ev));
-}
-
-}
-
-
 const handleClickButton = (ev) => {
 
-    inputSearch();
+    renderTasks();
 
     ev.preventDefault();
 
@@ -158,6 +148,8 @@ const handleClickButton = (ev) => {
 filterInput.addEventListener('input', handleFilterInput);
 btnSearch.addEventListener('click', handleClickButton);
 
+
+// searchInput.addEventListener('input', handleClickButton) Con el evento input al borrarse la tarea aparecen todas (renderTasks)
 
 // CÓDIGO QUE SE EJECUTA AL CARGAR LA PÁGINA
 
